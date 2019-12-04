@@ -1,0 +1,120 @@
+#classement-left{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#classement-right{
+    text-align: center;
+    padding-right: 5%;
+    border-left: dashed lightgrey;
+}
+
+#nombre-courses{
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+#courses{
+    color: lightslategrey;
+}
+
+#card-classement{
+    padding-bottom: 5%;
+}
+
+
+.info-importante{
+    color: #76B4FF;
+}
+
+.classement-chiffres{
+    text-align: right;
+}
+
+.title-classement{
+    margin: 3%;
+    color: #adb5bd;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+@media screen and (max-width: 640px) {
+    .title-classement{
+        font-size: 3em;
+    }
+    #classement-left{
+        font-size: 0.5em;
+    }
+    #classement-right{
+        font-size: 0.5em;
+    }
+    #nombre-courses{
+        font-size: 1.6em;
+    }
+    #courses{
+        font-size: 0.8em;
+    }
+    #card-classement{
+        font-size: 0.5em;
+    }
+    .info-importante{
+        font-size: 0.5em;
+    }
+    .classement-chiffres{
+        font-size: 0.5em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title-classement{
+        font-size: 2.0em;
+    }
+    #classement-left{
+        font-size: 0.5em;
+    }
+    #classement-right{
+        font-size: 0.5em;
+    }
+    #nombre-courses{
+        font-size: 1.6em;
+    }
+    #courses{
+        font-size: 0.8em;
+    }
+    #card-classement{
+        font-size: 0.5em;
+    }
+    .info-importante{
+        font-size: 0.5em;
+    }
+    .classement-chiffres{
+        font-size: 0.5em;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .title-classement{
+        font-size: 2.0em;
+    }
+    #classement-left{
+        font-size: 0.5em;
+    }
+    #classement-right{
+        font-size: 0.5em;
+    }
+    #nombre-courses{
+        font-size: 0.5em;
+    }
+    #courses{
+        font-size: 0.8em;
+    }
+    #card-classement{
+        font-size: 0.5em;
+    }
+    .info-importante{
+        font-size: 0.5em;
+    }
+    .classement-chiffres{
+        font-size: 0.5em;
+    }
+}

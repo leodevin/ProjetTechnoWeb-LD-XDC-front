@@ -1,0 +1,50 @@
+.title-form{
+    margin: 3%;
+    color: #adb5bd;
+    font-family: "Open Sans", sans-serif;
+    border-bottom: solid #adb5bd;
+}
+
+.button-form{
+    float: right;
+    margin: 5%;
+    width: 10rem;
+    background-color: #579AF6;
+}
+
+.card-form{
+    background: linear-gradient(87deg,#11cdef,#1171ef)!important;;
+}
+
+Form{
+    font-family: Open Sans,sans-serif;
+    font-size: 1rem;
+    color: white;
+}
+
+@media screen and (max-width: 640px) {
+    .title-form{
+        font-size: 1.5em;
+    }
+    .button-form{
+        width: 6rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title-form{
+        font-size: 1.2em;
+    }
+    .button-form{
+        width: 6rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .title-form{
+        font-size: 1.0em;
+    }
+    .button-form{
+        width: 6rem;
+    }
+}

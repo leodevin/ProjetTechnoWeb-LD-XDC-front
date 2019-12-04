@@ -1,0 +1,138 @@
+.card{
+    border-radius: 0.6rem!important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.h2HeaderCard{
+    color: #adb5bd;
+    font-size: 1.3em;
+}
+
+.h1HeaderCard{
+    font-weight: bolder;
+}
+
+.logo{
+    position: absolute;
+    left: 2%;
+}
+
+.acceuilSelect{
+    position: relative;
+    left: 45%;
+    color: white;
+    font-size: 2.5em;
+}
+
+.acceuilNotSelect{
+    position: relative;
+    left: 20%;
+    color: white;
+    font-size: 1.5em;
+}
+
+.acceuilNotSelect p{
+    text-decoration: underline;
+    text-decoration-color: white;
+    position: absolute;
+    bottom: 10%;
+}
+
+.adminSelect{
+    position: relative;
+    left: 45%;
+    color: white;
+    font-size: 2.5em;
+}
+
+.adminNotSelect{
+    position: relative;
+    left: 50%;
+    color: white;
+    font-size: 2.5em;
+}
+
+.logo > a > img{
+    height: 50px;
+}
+
+
+@media screen and (max-width: 640px) {
+    .logo > a > img{
+        margin-top: -15%;
+        height: 30px;
+    }
+
+    .h2HeaderCard{
+        font-size: 1.2em;
+    }
+    .acceuilSelect{
+        font-size: 1.4em;
+    }
+
+    .acceuilNotSelect{
+        font-size: 1.4em;
+    }
+
+    .adminSelect{
+        font-size: 1.4em;
+    }
+
+    .adminNotSelect{
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .logo > a > img{
+        margin-top: -15%;
+        height: 25px;
+    }
+
+    .h2HeaderCard{
+        font-size: 1em;
+    }
+    .acceuilSelect{
+        font-size: 1.2em;
+    }
+
+    .acceuilNotSelect{
+        font-size: 1.2em;
+    }
+
+    .adminSelect{
+        font-size: 1.2em;
+    }
+
+    .adminNotSelect{
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    .logo > a > img{
+        margin-top: -15%;
+        height: 20px;
+    }
+
+    .h2HeaderCard{
+        font-size: 0.8em;
+    }
+    .acceuilSelect{
+        font-size: 1em;
+    }
+
+    .acceuilNotSelect{
+        font-size: 1em;
+    }
+
+    .adminSelect{
+        font-size: 1em;
+    }
+
+    .adminNotSelect{
+        font-size: 1em;
+    }
+}

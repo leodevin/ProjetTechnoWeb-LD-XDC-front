@@ -1,0 +1,38 @@
+.title-graph{
+    margin: 3%;
+    color: #adb5bd;
+    font-family: "Open Sans", sans-serif;
+}
+
+#card-graph{
+    padding: 1%;
+}
+
+#container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 2%;
+    width: 100%;
+    height: 296px;
+    background-color: #fff;
+}
+
+
+@media screen and (max-width: 640px) {
+    .title-graph{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title-graph{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .title-graph{
+        font-size: 1.2em;
+    }
+}
