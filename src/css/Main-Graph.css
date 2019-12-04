@@ -21,18 +21,18 @@
 
 @media screen and (max-width: 640px) {
     .title-graph{
-        font-size: 1.5em;
+        font-size: 2em;
     }
 }
 
 @media screen and (max-width: 400px) {
     .title-graph{
-        font-size: 1.5em;
+        font-size: 2em;
     }
 }
 
 @media screen and (max-width: 350px) {
     .title-graph{
-        font-size: 1.2em;
+        font-size: 2em;
     }
 }

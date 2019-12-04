@@ -29,10 +29,10 @@
 
 @media screen and (max-width: 640px) {
     .info h3{
-        font-size: 1.2em;
+        font-size: 2em;
     }
     .info h1{
-        font-size: 1.5em;
+        font-size: 2em;
     }
     .info p{
         font-size: 1.0em;
@@ -44,10 +44,10 @@
 
 @media screen and (max-width: 400px) {
     .info h3{
-        font-size: 1.2em;
+        font-size: 1.8em;
     }
     .info h1{
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
     .info p{
         font-size: 1.0em;
@@ -59,10 +59,10 @@
 
 @media screen and (max-width: 350px) {
     .info h3{
-        font-size: 1.0em;
+        font-size: 1.8em;
     }
     .info h1{
-        font-size: 1.2em;
+        font-size: 1.8em;
     }
     .info p{
         font-size: 0.8em;

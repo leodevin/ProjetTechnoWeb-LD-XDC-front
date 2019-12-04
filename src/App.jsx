@@ -70,19 +70,19 @@ const Administration = () => (
 const Acceuil = () => (
     <div>
         <Container fluid className="main">
-            <Row className="mx-5 justify-content-center middle-row">
-                <Col className="col-lg-8 col-md-10 col-12 mt-lg-5 mt-2 justify-content-around">
+            <Row className="mx-md-5 justify-content-center middle-row">
+                <Col className="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
                     <Main_Card_Graph/>
                 </Col>
-                <Col className="col-lg-4 col-md-10 col-12 mt-lg-5 mt-2 justify-content-around">
+                <Col className="col-xl-4 col-lg-4 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
                     <Main_Card_Info/>
                 </Col>
             </Row>
-            <Row className="mx-5 justify-content-center">
-                <Col className="col-lg-6 col-md-10 col-12 mt-lg-5 mt-2 justify-content-around">
+            <Row className="mx-md-5 justify-content-center">
+                <Col className="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
                     <Main_Card_Classemnt/>
                 </Col>
-                <Col className="col-lg-6 col-md-10 col-12 mt-lg-5 mt-2 justify-content-around">
+                <Col className="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
                     <Main_Card_Map/>
                 </Col>
             </Row>

@@ -16,7 +16,7 @@ class Main_Card_Form extends Component{
             <Card className="my-lg-5 my-md-4 my-sm-4 my-4">
                 <Row className="mx-3 my-3 justify-content-between">
                     <Col className="col-lg-4 col-md-6 col-6">
-                        <h2 className="title-form">Ajout d'une courses</h2>
+                        <h2 className="title-form">Ajout d'une course</h2>
                     </Col>
                     <Col className="col-lg-4 col-md-6 col-6" id="col-form-button">
                         <Button className="button-form">AJOUTER</Button>

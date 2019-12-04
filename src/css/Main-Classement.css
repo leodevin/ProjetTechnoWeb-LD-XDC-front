@@ -40,81 +40,81 @@
 
 @media screen and (max-width: 640px) {
     .title-classement{
-        font-size: 3em;
+        font-size: 2em;
     }
     #classement-left{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     #classement-right{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     #nombre-courses{
         font-size: 1.6em;
     }
     #courses{
-        font-size: 0.8em;
+        font-size: 1em;
     }
     #card-classement{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     .info-importante{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     .classement-chiffres{
-        font-size: 0.5em;
+        font-size: 1em;
     }
 }
 
 @media screen and (max-width: 400px) {
     .title-classement{
-        font-size: 2.0em;
+        font-size: 2em;
     }
     #classement-left{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     #classement-right{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     #nombre-courses{
         font-size: 1.6em;
     }
     #courses{
-        font-size: 0.8em;
+        font-size: 1em;
     }
     #card-classement{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     .info-importante{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     .classement-chiffres{
-        font-size: 0.5em;
+        font-size: 1em;
     }
 }
 
 @media screen and (max-width: 350px) {
     .title-classement{
-        font-size: 2.0em;
+        font-size: 2em;
     }
     #classement-left{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     #classement-right{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     #nombre-courses{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     #courses{
-        font-size: 0.8em;
+        font-size: 1.6em;
     }
     #card-classement{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     .info-importante{
-        font-size: 0.5em;
+        font-size: 1em;
     }
     .classement-chiffres{
-        font-size: 0.5em;
+        font-size: 1em;
     }
 }

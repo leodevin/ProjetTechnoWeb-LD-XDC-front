@@ -42,7 +42,7 @@ class Main_Card_Map extends Component {
 
         return (
             <Card className="mx-3 my-1 h-100 p-3">
-                <h2 className="title-map-radar">Zone de livraison préférées</h2>
+                <h2 className="title-map-radar">Zones de livraison préférées</h2>
                 {renderRadarChart}
             </Card>
         );

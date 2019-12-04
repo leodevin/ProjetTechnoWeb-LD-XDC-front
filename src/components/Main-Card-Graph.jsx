@@ -52,7 +52,7 @@ class Main_Card_Graph extends Component{
 
         return(
             <Card className="mx-3" id="card-graph">
-                <h2 className="title-graph">Satistiques des revenues</h2>
+                <h2 className="title-graph">Satistiques des revenus</h2>
                 {renderAreaChart}
             </Card>
         );
