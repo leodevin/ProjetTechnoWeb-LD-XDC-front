@@ -2,7 +2,7 @@
     margin: 3%;
     color: #adb5bd;
     font-family: "Open Sans", sans-serif;
-    border-bottom: solid #adb5bd;
+    border-bottom: medium solid #adb5bd;
 }
 
 .button-form{
@@ -45,6 +45,10 @@ Form{
         font-size: 1.0em;
     }
     .button-form{
-        width: 6rem;
+        width: 5rem;
+    }
+
+    .button-form > div{
+        font-size: 0.8rem;
     }
 }

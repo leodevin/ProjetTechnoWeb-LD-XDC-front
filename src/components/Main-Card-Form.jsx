@@ -19,7 +19,7 @@ class Main_Card_Form extends Component{
                         <h2 className="title-form">Ajout d'une course</h2>
                     </Col>
                     <Col className="col-lg-4 col-md-6 col-6" id="col-form-button">
-                        <Button className="button-form">AJOUTER</Button>
+                        <Button className="justify-content-center button-form"><div>AJOUTER</div></Button>
                     </Col>
                 </Row>
                 <Card className="card-form">

@@ -15,7 +15,7 @@ class Champs_Form extends Component {
 
     render() {
         return (
-            <Form.Group as={Row} controlId="formHorizontalText">
+            <Form.Group className="px-lg-0 px-5" as={Row} controlId="formHorizontalText">
                 <Form.Label column sm={4}>{this.props.nomChamps}</Form.Label>
                 <Col sm={8}>
                     <Form.Control type="text" placeholder={this.props.nomPlaceHolder}/>
