@@ -29,8 +29,7 @@
     font-size: 2.5em;
 }
 
-
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
     .logo{
         display: none;
     }
@@ -38,16 +37,18 @@
         font-size: 1.5em;
     }
     .acceuilSelect{
-        font-size: 2em;
-        left: 10%;
+        font-size: 2.5em;
+        left: 20%;
+        padding-right: 2%;
     }
     .adminSelect{
-        font-size: 2em;
-        left: 18%;
+        font-size: 2.5em;
+        left: 20%;
+        padding-left: 2%;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 560px) {
     .logo{
         display: none;
     }
@@ -55,12 +56,14 @@
         font-size: 1em;
     }
     .acceuilSelect{
-        font-size: 1.5em;
-        left: 12%;
+        font-size: 2em;
+        left: 15%;
+        padding-right: 2%;
     }
     .adminSelect{
-        font-size: 1.5em;
-        left: 28%;
+        font-size: 2em;
+        left: 15%;
+        padding-left: 2%;
     }
 }
 
@@ -72,11 +75,13 @@
         font-size: 0.8em;
     }
     .acceuilSelect{
-        font-size: 1.5em;
-        left: 8%;
+        font-size: 1.8em;
+        left: 5%;
+        padding-right: 2%;
     }
     .adminSelect{
-        font-size: 1.5em;
-        left: 20%;
+        font-size: 1.8em;
+        left: 5%;
+        padding-left: 2%;
     }
 }

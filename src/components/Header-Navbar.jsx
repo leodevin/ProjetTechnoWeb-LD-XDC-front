@@ -20,6 +20,7 @@ class Header_Navbar extends React.Component {
                 adminPosition: 0
             }
         } else {
+            console.log(window.innerWidth);
             if (window.innerWidth >= 860) {
                 this.state = {
                     acceuilScale: 0.7,
@@ -37,23 +38,25 @@ class Header_Navbar extends React.Component {
             } else {
                 this.state = {
                     acceuilScale: 0.7,
-                    acceuilPosition: -150,
+                    acceuilPosition: 0,
                     adminScale: 1,
-                    adminPosition: -160
+                    adminPosition: 0
                 }
             }
         }
     }
 
+
+
+    //**** DIFFERENTES TRANSITIONS ****//
     transitionLg() {
         this.setState({
             acceuilScale: 0.7,
-            acceuilPosition: -250,
+            acceuilPosition: -350,
             adminScale: 1,
-            adminPosition: -350
+            adminPosition: -250
         });
     }
-
     transitionMd() {
         this.setState({
             acceuilScale: 0.7,
@@ -62,7 +65,6 @@ class Header_Navbar extends React.Component {
             adminPosition: -220
         });
     }
-
     transitionSm() {
         this.setState({
             acceuilScale: 0.7,
@@ -71,7 +73,12 @@ class Header_Navbar extends React.Component {
             adminPosition: 0
         });
     }
+    /******************************************/
 
+
+
+
+    //**** ITEMS SELECT ****//
     selectAcceuil(event) {
         this.setState({
             acceuilScale: 1,
@@ -83,16 +90,18 @@ class Header_Navbar extends React.Component {
             event.preventDefault();
         }
     }
-
     selectAdmin(event) {
-        if (window.innerWidth >= 860) this.transitionLg();
-        else if (window.innerWidth > 520 && window.innerWidth < 860) this.transitionMd();
+        if (window.innerWidth >= 1024) this.transitionLg();
+        else if (window.innerWidth > 800 && window.innerWidth < 1024) this.transitionMd();
         else this.transitionSm();
 
         if (this.state.acceuilScale === 0.7) {
             event.preventDefault();
         }
     }
+    /******************************************/
+
+
 
     render() {
         return (
