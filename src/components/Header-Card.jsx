@@ -25,7 +25,6 @@ class Header_Card extends React.Component {
 
     calculateGrowth(){
         let sortedActivities = this.state.values.slice().sort((a, b) => b.date - a.date);
-        console.log(sortedActivities);
         if (sortedActivities.length>1){
             let percent = ((sortedActivities[sortedActivities.length-1].value/sortedActivities[sortedActivities.length-2].value)-1)*100;
             let res = parseFloat(percent).toFixed(2);
@@ -40,13 +39,21 @@ class Header_Card extends React.Component {
     };
 
     calculateAverage(){
-        let average=0;
-        for (let i=0; i<this.state.values.length; i++){
-            average+=this.state.values[i].value;
+        if (this.state.values.length!=0){
+            let average=0;
+            for (let i=0; i<this.state.values.length; i++){
+                average+=this.state.values[i].value;
+            }
+            let res = parseFloat(average/this.state.values.length).toFixed(2);
+            this.setState({
+                value: res
+            });
+        }else{
+            this.setState({
+                value: 0
+            });
         }
-        this.setState({
-            value: average
-        });
+
     }
 
     componentDidMount() {

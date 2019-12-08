@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Card, Button, Row, Col, Form} from "react-bootstrap";
 import '../css/Main-Form.css'
 
-import Champs_Form from "./Champs-Form";
+import ChampsForm from "./Champs-Form";
 
 
 class Main_Card_Form extends Component{
@@ -26,10 +26,10 @@ class Main_Card_Form extends Component{
                     <Row className="my-5 justify-content-center">
                         <Col lg={6}>
                             <Form>
-                                <Champs_Form nomChamps="ID" nomPlaceHolder="ObjectID"/>
-                                <Champs_Form nomChamps="LOCATION" nomPlaceHolder="Pays"/>
-                                <Champs_Form nomChamps="PERSONNES DANS LA MAISON" nomPlaceHolder="Nombre"/>
-                                <Champs_Form nomChamps="TAILLE DE LA MAISON" nomPlaceHolder="Big/Medium/Small"/>
+                                <ChampsForm nomChamps="ID" nomPlaceHolder="ObjectID"/>
+                                <ChampsForm nomChamps="LOCATION" nomPlaceHolder="Pays"/>
+                                <ChampsForm nomChamps="PERSONNES DANS LA MAISON" nomPlaceHolder="Nombre"/>
+                                <ChampsForm nomChamps="TAILLE DE LA MAISON" nomPlaceHolder="Big/Medium/Small"/>
                             </Form>
                         </Col>
                     </Row>
