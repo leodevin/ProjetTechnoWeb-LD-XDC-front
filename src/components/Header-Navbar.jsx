@@ -13,7 +13,7 @@ const styles = {
 class Header_Navbar extends React.Component {
     constructor(props) {
         super(props);
-        if (window.location.pathname == "/") {
+        if (window.location.pathname === "/") {
             this.state = {
                 acceuilScale: 1,
                 acceuilPosition: 0,

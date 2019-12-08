@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Card, Button, Row, Col, Form} from "react-bootstrap";
 import '../css/Main-Form.css'
 
-import Champs_Form from "./Champs-Form";
+import ChampsForm from "./Champs-Form";
 
 
 class Main_Card_Form extends Component{
