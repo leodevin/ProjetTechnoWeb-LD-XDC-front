@@ -22,16 +22,14 @@ class App extends React.Component {
         this.state = {
             acceuilPosition: 0,
             fade: 0,
-
-            dataGraph : [
-                {name: '01/2019', Pollution: 55},
-                {name: '02/2019', Pollution: 60},
-                {name: '03/2019', Pollution: 33},
-                {name: '04/2019', Pollution: 34},
-                {name: '05/2019', Pollution: 39}
-            ]
-        }
+            idUserSelected: 0
+        };
+        this.handleChangeUser = this.handleChangeUser.bind(this);
     }
+
+    handleChangeUser(id){
+        this.setState({idUserSelected: id})
+    };
 
     //https://tech.lalilo.com/dynamic-transitions-with-react-router-and-react-transition-group
 
@@ -44,26 +42,22 @@ class App extends React.Component {
                 <div className="App">
                     <header className="header-body bg-gradient-info">
                         <div className="container-fluid">
-                            {/*Envoyer un tableau de tous les Users*/}
-                            <Header_Navbar users={user}/>
+                            <Header_Navbar users={user} sendData={this.handleChangeUser}/>
                             <div className="row mx-5 justify-content-center">
                                 <Header_Card
-                                    description={"Température moyenne actuelle"}
-                                    value={"21.5"}
-                                    growth={"0.3"}/>
+                                    description={this.state.idUserSelected}
+                                    userID={this.state.idUserSelected}/>
                                 <Header_Card
                                     description={"Pollution moyenne actuelle"}
-                                    value={"0.5"}
-                                    growth={"0.1"}/>
+                                    userID={this.state.idUserSelected}/>
                                 <Header_Card
                                     description={"Humidité moyenne actuelle"}
-                                    value={"3.5"}
-                                    growth={"-0.4"}/>
+                                    userID={this.state.idUserSelected}/>
                             </div>
                         </div>
                     </header>
                     <AnimatedSwitch animationClassName="page-slide" animationTimeout={500}>
-                        <AnimatedRoute exact path="/"><Acceuil data={this.state.dataGraph}/></AnimatedRoute>
+                        <AnimatedRoute exact path="/"><Acceuil userID={this.state.idUserSelected}/></AnimatedRoute>
                         <AnimatedRoute path="/administration"><Administration/></AnimatedRoute>
                     </AnimatedSwitch>
                 </div>
@@ -92,31 +86,18 @@ const Acceuil = (props) => (
         <Container fluid className="main">
             <Row className="mx-md-5 justify-content-center middle-row">
                 <Col className="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
-                    {/*Envoyer un tableau de measures pollution directement en paramètre --> + simple*/}
-                    <Main_Card_Graph
-                        data={props.data}/>
+                    <Main_Card_Graph userID={props.userID}/>
                 </Col>
                 <Col className="col-xl-4 col-lg-4 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
-                    <Main_Card_Info
-                        textJson={"Léonard je t'écris ce message pour te dire que JE TE BAISE Putain !"}/>
+                    <Main_Card_Info userID={props.userID}/>
                 </Col>
             </Row>
             <Row className="mx-md-5 justify-content-center">
                 <Col className="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
-                    <Main_Card_User
-                        id={"5ddb94c6fc13ae640c000014"}
-                        lieu={"France"}
-                        nbrPersonnes={4}
-                        taille={"Big"}
-                        nbrSensor={8}
-                        nbrMeasure={16}/>
+                    <Main_Card_User userID={props.userID}/>
                 </Col>
                 <Col className="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
-                    <Main_Card_Map
-                        bedroom={3}
-                        livingroom={2}
-                        bathroom={2}
-                        entrance={1}/>
+                    <Main_Card_Map userID={props.userID}/>
                 </Col>
             </Row>
         </Container>

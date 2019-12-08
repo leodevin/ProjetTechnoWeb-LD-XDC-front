@@ -12,7 +12,13 @@ class Main_Card_Graph extends Component{
         super(props);
 
         this.state = {
-            data : props.data
+                data : [
+                {name: '-/-', Pollution: 0},
+                {name: '-/-', Pollution: 0},
+                {name: '-/-', Pollution: 0},
+                {name: '-/-', Pollution: 0},
+                {name: '-/-', Pollution: 0}
+            ]
         };
     }
 
