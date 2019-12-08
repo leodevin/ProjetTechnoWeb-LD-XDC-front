@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../css/Header.css';
 
 
@@ -10,6 +11,7 @@ class Header_Card extends React.Component {
             description: "None",
             value: 0,
             growth: 0,
+            values:[]
         };
     }
 
@@ -21,6 +23,53 @@ class Header_Card extends React.Component {
         }
     }
 
+    calculateGrowth(){
+        let sortedActivities = this.state.values.slice().sort((a, b) => b.date - a.date);
+        console.log(sortedActivities);
+        if (sortedActivities.length>1){
+            let percent = ((sortedActivities[sortedActivities.length-1].value/sortedActivities[sortedActivities.length-2].value)-1)*100;
+            let res = parseFloat(percent).toFixed(2);
+            this.setState({
+                growth: res
+            })
+        }else{
+            this.setState({
+                growth: 0
+            })
+        }
+    };
+
+    calculateAverage(){
+        let average=0;
+        for (let i=0; i<this.state.values.length; i++){
+            average+=this.state.values[i].value;
+        }
+        this.setState({
+            value: average
+        });
+    }
+
+    componentDidMount() {
+        this.getUserMeasures();
+    }
+
+    ///Get Measures  only if props has changed
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        ///Get Profile Details only if props has changed
+        if (this.props.userID !== prevProps.userID) {
+            this.getUserMeasures(this.props.userID);
+        }
+    }
+
+    getUserMeasures(){
+        axios.get(`http://localhost:3000/user/`+this.props.userID+`/`+this.props.type)
+            .then(res => {
+                const results = res.data;
+                this.setState({ values : results });
+                this.calculateAverage();
+                this.calculateGrowth();
+            });
+    };
 
     render() {
         return (
