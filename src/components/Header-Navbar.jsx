@@ -106,12 +106,15 @@ class Header_Navbar extends React.Component {
     /******************************************/
 
 
+    handleClickItem(id){
+        this.props.sendData(id);
+    };
 
     render() {
 
         // Création de tous les items
         const usersList = this.state.users.map((user) =>
-            <Dropdown.Item href={"#"}>{user._id}</Dropdown.Item>
+            <Dropdown.Item href={"#"} onClick={() => this.handleClickItem(user._id)}>{user._id}</Dropdown.Item>
         );
 
         return (

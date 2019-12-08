@@ -23,8 +23,13 @@ class App extends React.Component {
             acceuilPosition: 0,
             fade: 0,
             idUserSelected: 0
-        }
+        };
+        this.handleChangeUser = this.handleChangeUser.bind(this);
     }
+
+    handleChangeUser(id){
+        this.setState({idUserSelected: id})
+    };
 
     //https://tech.lalilo.com/dynamic-transitions-with-react-router-and-react-transition-group
 
@@ -37,10 +42,10 @@ class App extends React.Component {
                 <div className="App">
                     <header className="header-body bg-gradient-info">
                         <div className="container-fluid">
-                            <Header_Navbar users={user}/>
+                            <Header_Navbar users={user} sendData={this.handleChangeUser}/>
                             <div className="row mx-5 justify-content-center">
                                 <Header_Card
-                                    description={"Température moyenne actuelle"}
+                                    description={this.state.idUserSelected}
                                     userID={this.state.idUserSelected}/>
                                 <Header_Card
                                     description={"Pollution moyenne actuelle"}
