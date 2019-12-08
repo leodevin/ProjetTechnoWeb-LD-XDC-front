@@ -19,7 +19,6 @@ class Header_Navbar extends React.Component {
                 acceuilPosition: 0,
                 adminScale: 0.7,
                 adminPosition: 0,
-                users: props.users
             }
         } else {
             if (window.innerWidth >= 860) {
@@ -28,7 +27,6 @@ class Header_Navbar extends React.Component {
                     acceuilPosition: -350,
                     adminScale: 1,
                     adminPosition: -250,
-                    users: props.users
                 }
             } else if (window.innerWidth > 520 && window.innerWidth < 860) {
                 this.state = {
@@ -36,7 +34,6 @@ class Header_Navbar extends React.Component {
                     acceuilPosition: -250,
                     adminScale: 1,
                     adminPosition: -220,
-                    users: props.users
                 }
             } else {
                 this.state = {
@@ -44,7 +41,6 @@ class Header_Navbar extends React.Component {
                     acceuilPosition: 0,
                     adminScale: 1,
                     adminPosition: 0,
-                    users: props.users
                 }
             }
         }
@@ -113,7 +109,7 @@ class Header_Navbar extends React.Component {
     render() {
 
         // Création de tous les items
-        const usersList = this.state.users.map((user) =>
+        const usersList = this.props.users.map((user) =>
             <Dropdown.Item href={"#"} onClick={() => this.handleClickItem(user._id)}>{user._id}</Dropdown.Item>
         );
 
