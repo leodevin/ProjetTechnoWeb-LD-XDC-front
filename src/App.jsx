@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router} from "react-router-dom";
+import axios from 'axios';
 import {Row, Col, Container} from "react-bootstrap";
 
 //Components
@@ -20,6 +21,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            users: [],
             acceuilPosition: 0,
             fade: 0,
             idUserSelected: 0
@@ -33,16 +35,22 @@ class App extends React.Component {
 
     //https://tech.lalilo.com/dynamic-transitions-with-react-router-and-react-transition-group
 
-    render() {
+    componentDidMount() {
+        axios.get(`http://localhost:3000/users/`)
+            .then(res => {
+                const persons = res.data;
+                this.setState({ users : persons });
+            })
+    }
 
-        const user = [{_id: "User id 1", name: "leo je te baise"},{_id: "User id 2", name: "leo je te baise"}];
+    render() {
 
         return (
             <Router>
                 <div className="App">
                     <header className="header-body bg-gradient-info">
                         <div className="container-fluid">
-                            <Header_Navbar users={user} sendData={this.handleChangeUser}/>
+                            <Header_Navbar users={this.state.users} sendData={this.handleChangeUser}/>
                             <div className="row mx-5 justify-content-center">
                                 <Header_Card
                                     description={"Température moyenne actuelle"}
