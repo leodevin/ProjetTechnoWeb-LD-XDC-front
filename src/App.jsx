@@ -24,7 +24,7 @@ class App extends React.Component {
             users: [],
             acceuilPosition: 0,
             fade: 0,
-            idUserSelected: 0
+            idUserSelected: "5ddb94c6fc13ae640c000014"
         };
         this.handleChangeUser = this.handleChangeUser.bind(this);
     }
@@ -53,14 +53,20 @@ class App extends React.Component {
                             <Header_Navbar users={this.state.users} sendData={this.handleChangeUser}/>
                             <div className="row mx-5 justify-content-center">
                                 <Header_Card
-                                    description={this.state.idUserSelected}
-                                    userID={this.state.idUserSelected}/>
+                                    description={"Temp. moyenne actuelle"}
+                                    userID={this.state.idUserSelected}
+                                    type={"temperatures"}
+                                />
                                 <Header_Card
                                     description={"Pollution moyenne actuelle"}
-                                    userID={this.state.idUserSelected}/>
+                                    userID={this.state.idUserSelected}
+                                    type={"airPollutions"}
+                                />
                                 <Header_Card
                                     description={"Humidité moyenne actuelle"}
-                                    userID={this.state.idUserSelected}/>
+                                    userID={this.state.idUserSelected}
+                                    type={"humidities"}
+                                />
                             </div>
                         </div>
                     </header>
