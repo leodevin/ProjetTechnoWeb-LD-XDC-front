@@ -8,7 +8,7 @@ class Main_Card_Info extends Component{
         super(props);
 
         this.state = {
-            textJson : props.textJson
+            textJson : "Aucune requête..."
         }
     }
     render() {

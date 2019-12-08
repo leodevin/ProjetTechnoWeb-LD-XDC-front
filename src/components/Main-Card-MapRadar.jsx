@@ -11,10 +11,10 @@ class Main_Card_Map extends Component {
 
         this.state = {
             data: [
-                {subject: 'Bedroom', A: props.bedroom, fullMark: 150},
-                {subject: 'Livingroom', A: props.livingroom, fullMark: 150},
-                {subject: 'Bathroom', A: props.bathroom, fullMark: 150},
-                {subject: 'Entrance', A: props.entrance, fullMark: 150},
+                {subject: 'Bedroom', A: 0, fullMark: 150},
+                {subject: 'Livingroom', A: 0, fullMark: 150},
+                {subject: 'Bathroom', A: 0, fullMark: 150},
+                {subject: 'Entrance', A: 0, fullMark: 150},
             ]
         }
     }

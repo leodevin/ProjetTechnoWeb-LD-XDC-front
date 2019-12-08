@@ -8,8 +8,8 @@ class Header_Card extends React.Component {
         super(props);
         this.state = {
             description: props.description,
-            value: props.value,
-            growth: props.growth,
+            value: 0,
+            growth: 0,
         };
     }
 

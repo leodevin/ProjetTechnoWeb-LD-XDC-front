@@ -9,12 +9,12 @@ class Main_Card_User extends Component{
         super(props);
 
         this.state = {
-            id: props.id,
-            lieu: props.lieu,
-            nbrPersonnes: props.nbrPersonnes,
-            taille: props.taille,
-            nbrSensor: props.nbrSensor,
-            nbrMeasure: props.nbrMeasure
+            id: "none",
+            lieu: "none",
+            nbrPersonnes: 0,
+            taille: "none",
+            nbrSensor: 0,
+            nbrMeasure: 0
         }
     }
 
