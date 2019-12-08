@@ -8,18 +8,17 @@ class Main_Card_Info extends Component{
         super(props);
 
         this.state = {
-            jourSansAccident: 67
+            textJson : props.textJson
         }
     }
     render() {
         return(
             <Card text="white" className="mx-3 card-info">
-                <div className="mx-3 info">
-                    <h3>TEMPS PASSE SANS ACCIDENTS</h3>
-                    <h1>+ {this.state.jourSansAccident} jours</h1>
-                    <Card.Text>🤕</Card.Text>
-                    <Card.Text>Ce qui ne me tue pas me rend plus fort !</Card.Text>
-                    <Button id="accident" variant="dark" text="white" size="lg" style={{marginTop: "10%"}} block>Accident</Button>
+                <div className="mx-3 h-100 info">
+                    <h3>DEBUG</h3>
+                    <Card.Text className={"overflow-auto"} id={"debugText"}>
+                        {this.state.textJson}
+                    </Card.Text>
                 </div>
             </Card>
         );

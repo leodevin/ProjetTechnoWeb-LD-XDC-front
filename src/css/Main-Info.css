@@ -11,34 +11,18 @@
     color: white !important;
 }
 
-.info h1{
+#debugText{
     text-align: center;
-    color: white !important;
-    margin-top: 10%;
-}
-
-.info p{
-    text-align: center;
-    color: white !important;
-}
-
-.accident{
-    display: block;
-    margin : auto;
+    background-color: rgba(38,50,56,1);
+    color: rgba(243,181,69,1);
+    height: 278px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 640px) {
     .info h3{
         font-size: 2em;
-    }
-    .info h1{
-        font-size: 2em;
-    }
-    .info p{
-        font-size: 1.0em;
-    }
-    #accident{
-        font-size: 1.2em;
     }
 }
 
@@ -46,28 +30,10 @@
     .info h3{
         font-size: 1.8em;
     }
-    .info h1{
-        font-size: 1.8em;
-    }
-    .info p{
-        font-size: 1.0em;
-    }
-    #accident{
-        font-size: 1.2em;
-    }
 }
 
 @media screen and (max-width: 350px) {
     .info h3{
         font-size: 1.8em;
-    }
-    .info h1{
-        font-size: 1.8em;
-    }
-    .info p{
-        font-size: 0.8em;
-    }
-    #accident{
-        font-size: 0.8em !important;
     }
 }

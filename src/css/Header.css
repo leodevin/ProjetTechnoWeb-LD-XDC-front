@@ -13,9 +13,10 @@
     position: absolute;
     left: 2%;
 }
-.logo > a > img{
+img{
     height: 50px;
 }
+
 .acceuilSelect{
     position: relative;
     left: 45%;

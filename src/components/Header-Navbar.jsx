@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import logo from '../img/logo_veelo.png';
 import '../css/Header.css';
+import Dropdown from "react-bootstrap/Dropdown";
 
 //https://www.youtube.com/watch?v=8E6J0ZfeyBU
 const styles = {
@@ -17,30 +18,33 @@ class Header_Navbar extends React.Component {
                 acceuilScale: 1,
                 acceuilPosition: 0,
                 adminScale: 0.7,
-                adminPosition: 0
+                adminPosition: 0,
+                users: props.users
             }
         } else {
-            console.log(window.innerWidth);
             if (window.innerWidth >= 860) {
                 this.state = {
                     acceuilScale: 0.7,
                     acceuilPosition: -350,
                     adminScale: 1,
-                    adminPosition: -250
+                    adminPosition: -250,
+                    users: props.users
                 }
             } else if (window.innerWidth > 520 && window.innerWidth < 860) {
                 this.state = {
                     acceuilScale: 0.7,
                     acceuilPosition: -250,
                     adminScale: 1,
-                    adminPosition: -220
+                    adminPosition: -220,
+                    users: props.users
                 }
             } else {
                 this.state = {
                     acceuilScale: 0.7,
                     acceuilPosition: 0,
                     adminScale: 1,
-                    adminPosition: 0
+                    adminPosition: 0,
+                    users: props.users
                 }
             }
         }
@@ -104,12 +108,23 @@ class Header_Navbar extends React.Component {
 
 
     render() {
+
+        // Création de tous les items
+        const usersList = this.state.users.map((user) =>
+            <Dropdown.Item href={"#"}>{user._id}</Dropdown.Item>
+        );
+
         return (
             <div className="row align-text-bottom">
                 <div className="logo">
-                    <a className="navbar-brand" href="/">
-                        <img src={logo} alt="Veelo"/>
-                    </a>
+                    <Dropdown>
+                        <Dropdown.Toggle style={{backgroundColor: 'transparent', border: 'none'}} id="dropdown-basic">
+                            <img src={logo} alt="Veelo"/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {usersList}
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
                 <div className="acceuilSelect" style={{
                     ...styles,

@@ -1,37 +1,43 @@
-#classement-left{
+#user-left{
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 5%;
 }
 
-#classement-right{
+#user-right{
     text-align: center;
     padding-right: 5%;
+    margin-top: 2%;
     border-left: dashed lightgrey;
+    padding-top: 5%;
 }
 
-#nombre-courses{
+#nombre-capteur{
     font-weight: bold;
     font-size: 3rem;
 }
 
-#courses{
+#capteurs{
     color: lightslategrey;
 }
 
-#card-classement{
-    padding-bottom: 5%;
+#card-user{
+    padding-bottom: 2%;
 }
 
+#title-id{
+    font-size: 1.5rem;
+}
 
 .info-importante{
     color: #76B4FF;
 }
 
-.classement-chiffres{
+.user-chiffres{
     text-align: right;
 }
 
-.title-classement{
+.title-user{
     margin: 3%;
     color: #adb5bd;
     font-family: "Open Sans", sans-serif;
@@ -39,82 +45,82 @@
 
 
 @media screen and (max-width: 640px) {
-    .title-classement{
+    .title-user{
         font-size: 2em;
     }
-    #classement-left{
+    #user-left{
         font-size: 1em;
     }
-    #classement-right{
+    #user-right{
         font-size: 1em;
     }
-    #nombre-courses{
+    #nombre-capteur{
         font-size: 1.6em;
     }
-    #courses{
+    #capteurs{
         font-size: 1em;
     }
-    #card-classement{
+    #card-user{
         font-size: 1em;
     }
     .info-importante{
         font-size: 1em;
     }
-    .classement-chiffres{
+    .user-chiffres{
         font-size: 1em;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .title-classement{
+    .title-user{
         font-size: 2em;
     }
-    #classement-left{
+    #user-left{
         font-size: 1em;
     }
-    #classement-right{
+    #user-right{
         font-size: 1em;
     }
-    #nombre-courses{
+    #nombre-capteur{
         font-size: 1.6em;
     }
-    #courses{
+    #capteurs{
         font-size: 1em;
     }
-    #card-classement{
+    #card-user{
         font-size: 1em;
     }
     .info-importante{
         font-size: 1em;
     }
-    .classement-chiffres{
+    .user-chiffres{
         font-size: 1em;
     }
 }
 
 @media screen and (max-width: 350px) {
-    .title-classement{
+    .title-user{
         font-size: 2em;
     }
-    #classement-left{
+    #user-left{
         font-size: 1em;
     }
-    #classement-right{
+    #user-right{
         font-size: 1em;
     }
-    #nombre-courses{
+    #nombre-capteur{
         font-size: 1em;
     }
-    #courses{
+    #capteurs{
         font-size: 1.6em;
     }
-    #card-classement{
+    #card-user{
         font-size: 1em;
     }
     .info-importante{
         font-size: 1em;
     }
-    .classement-chiffres{
+    .user-chiffres{
         font-size: 1em;
     }
 }

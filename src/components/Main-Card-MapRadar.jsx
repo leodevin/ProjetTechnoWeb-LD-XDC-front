@@ -11,12 +11,10 @@ class Main_Card_Map extends Component {
 
         this.state = {
             data: [
-                {subject: '16e', A: 120, B: 110, fullMark: 150},
-                {subject: '17e', A: 98, B: 130, fullMark: 150},
-                {subject: '18e', A: 86, B: 130, fullMark: 150},
-                {subject: 'Levallois', A: 99, B: 100, fullMark: 150},
-                {subject: '14e', A: 85, B: 90, fullMark: 150},
-                {subject: '15e', A: 65, B: 85, fullMark: 150},
+                {subject: 'Bedroom', A: props.bedroom, fullMark: 150},
+                {subject: 'Livingroom', A: props.livingroom, fullMark: 150},
+                {subject: 'Bathroom', A: props.bathroom, fullMark: 150},
+                {subject: 'Entrance', A: props.entrance, fullMark: 150},
             ]
         }
     }
@@ -24,8 +22,11 @@ class Main_Card_Map extends Component {
     render() {
 
         const renderRadarChart = (
-            <ResponsiveContainer width="95%" height={200}>
-                <RadarChart outerRadius={75} width={400} height={200} data={this.state.data}>
+            <ResponsiveContainer width="95%" height={250}>
+                <RadarChart outerRadius={85}
+                            width={400}
+                            height={200}
+                            data={this.state.data}>
                     <defs>
                         <radialGradient id="colorVv">
                             <stop offset="5%" stopColor="#E01111" stopOpacity={0.2}/>
@@ -41,8 +42,8 @@ class Main_Card_Map extends Component {
     );
 
         return (
-            <Card className="mx-3 my-1 h-100 p-3">
-                <h2 className="title-map-radar">Zones de livraison préférées</h2>
+            <Card className="mx-3 p-3 h-100">
+                <h2 className="title-map-radar">Capteurs dans la maison</h2>
                 {renderRadarChart}
             </Card>
         );

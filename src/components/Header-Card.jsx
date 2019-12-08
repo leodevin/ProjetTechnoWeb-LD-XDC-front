@@ -7,9 +7,9 @@ class Header_Card extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            description: "Distance parcourue /jour",
-            value: 45.2,
-            growth: 2.3,
+            description: props.description,
+            value: props.value,
+            growth: props.growth,
         };
     }
 
