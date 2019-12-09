@@ -22,6 +22,8 @@ Form{
     color: white;
 }
 
+
+
 @media screen and (max-width: 640px) {
     .title-form{
         font-size: 1.5em;
