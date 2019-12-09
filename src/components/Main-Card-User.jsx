@@ -2,10 +2,11 @@ import React, {Component} from "react";
 import {Card, Row, Col} from "react-bootstrap";
 
 import '../css/Main-User.css'
+import axios from "axios";
 
-class Main_Card_User extends Component{
+class Main_Card_User extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -18,8 +19,62 @@ class Main_Card_User extends Component{
         }
     }
 
+    componentDidMount() {
+        this.getUserInfo();
+    }
+
+    ///Get Measures  only if props has changed
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        ///Get Profile Details only if props has changed
+        if (this.props.userID !== prevProps.userID) {
+            this.getUserInfo(this.props.userID);
+        }
+    }
+
+    getUserInfo() {
+        axios.get(`http://localhost:3000/user/` + this.props.userID)
+            .then(res => {
+                this.setState({
+                    id: res.data._id,
+                    lieu: res.data.location,
+                    nbrPersonnes: res.data.personsInHouse,
+                    taille: res.data.houseSize
+                });
+                this.getMeasureSensorNumber(this.props.userID);
+            });
+    };
+
+    getMeasureSensorNumber() {
+        let nbMesures = 0;
+        let nbCapteurs = 0;
+        let sensMeasures = [];
+        let sensors = [];
+        axios.get(`http://localhost:3000/user/` + this.props.userID + `/sensors/`)
+            .then(res => {
+                sensors = res.data;
+                nbCapteurs= sensors.length;
+                axios.get(`http://localhost:3000/measures`)
+                    .then(res => {
+                        sensMeasures = res.data;
+                        var results = [];
+                        for (let i = 0; i < sensors.length; i++) {
+                            for (let j = 0; j < sensMeasures.length; j++) {
+                                if (sensors[i]._id === sensMeasures[j].sensorID) {
+                                    nbMesures++;
+                                }
+                            }
+                        }
+                        this.setState({
+                            nbrSensor: nbCapteurs,
+                            nbrMeasure : nbMesures
+                        });
+                    });
+            });
+    };
+
+
     render() {
-        return(
+        return (
             <Card className="mx-3 p-3 h-100" id="card-user">
                 <h2 className="title-user">Profil de l'utilisateur</h2>
                 <Row>
