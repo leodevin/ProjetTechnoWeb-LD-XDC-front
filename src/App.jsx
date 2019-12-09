@@ -53,15 +53,15 @@ class App extends React.Component {
                                 <HeaderCard
                                     description={"Temp. moyenne actuelle"}
                                     userID={this.state.idUserSelected}
-                                    type={"temperatures"}/>
+                                    type={"temperature"}/>
                                 <HeaderCard
                                     description={"Pollution moyenne actuelle"}
                                     userID={this.state.idUserSelected}
-                                    type={"airPollutions"}/>
+                                    type={"airPollution"}/>
                                 <HeaderCard
                                     description={"Humidité moyenne actuelle"}
                                     userID={this.state.idUserSelected}
-                                    type={"humidities"}/>
+                                    type={"humidity"}/>
                             </div>
                         </div>
                     </header>

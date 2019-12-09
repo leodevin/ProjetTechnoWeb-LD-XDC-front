@@ -11,7 +11,7 @@ class Header_Card extends React.Component {
             description: "None",
             value: 0,
             growth: 0,
-            values:[]
+            values:[],
         };
     }
 
@@ -39,7 +39,7 @@ class Header_Card extends React.Component {
     };
 
     calculateAverage(){
-        if (this.state.values.length!=0){
+        if (this.state.values.length!==0){
             let average=0;
             for (let i=0; i<this.state.values.length; i++){
                 average+=this.state.values[i].value;
@@ -69,12 +69,30 @@ class Header_Card extends React.Component {
     }
 
     getUserMeasures(){
-        axios.get(`http://localhost:3000/user/`+this.props.userID+`/`+this.props.type)
+        let sensMeasures=[];
+        let sensors=[];
+        axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)
             .then(res => {
-                const results = res.data;
-                this.setState({ values : results });
-                this.calculateAverage();
-                this.calculateGrowth();
+                sensors = res.data;
+                axios.get(`http://localhost:3000/measures`)
+                    .then(res => {
+                        sensMeasures = res.data;
+                        var temp =[];
+                        for(let i=0; i<sensors.length;i++){
+                            for (let j=0;j<sensMeasures.length;j++){
+                                if(sensors[i]._id === sensMeasures[j].sensorID){
+                                    if((sensMeasures[j].type===this.props.type)){
+                                        temp.push(sensMeasures[j]);
+                                    }
+                                }
+                            }
+                        }
+                        this.setState({
+                            values: temp
+                        });
+                        this.calculateAverage();
+                        this.calculateGrowth();
+                    });
             });
     };
 

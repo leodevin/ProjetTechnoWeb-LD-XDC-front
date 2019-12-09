@@ -3,6 +3,7 @@ import '../css/Main-MapRadar.css'
 
 import {Card} from "react-bootstrap";
 import {Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer} from 'recharts';
+import axios from "axios";
 
 
 class Main_Card_Map extends Component {
@@ -18,6 +19,43 @@ class Main_Card_Map extends Component {
             ]
         }
     }
+
+    componentDidMount() {
+        this.getMapRadarMeasures();
+    }
+
+    ///Get Measures  only if props has changed
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        ///Get Profile Details only if props has changed
+        if (this.props.userID !== prevProps.userID) {
+            this.getMapRadarMeasures(this.props.userID);
+        }
+    }
+
+    getMapRadarMeasures() {
+        let dataBedroom = 0;
+        let dataLivingRoom = 0;
+        let dataBathroom = 0;
+        let dataEntrance = 0;
+
+        let sensMeasures=[];
+        let sensors=[];
+        axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)
+            .then(res => {
+                sensors = res.data;
+                for(let i=0; i<sensors.length;i++){
+                    if(sensors[i].location==="bedroom"){dataBedroom++;}
+                    if(sensors[i].location==="livingroom"){dataLivingRoom++;}
+                    if(sensors[i].location==="bathroom"){dataBathroom++;}
+                    if(sensors[i].location==="entrance"){dataEntrance++;}
+                }
+                console.log(dataEntrance);
+                let values = [{subject: 'Bedroom', A: dataBedroom, fullMark: 150}, {subject: 'Livingroom', A: dataLivingRoom, fullMark: 150}, {subject: 'Bathroom', A: dataBathroom, fullMark: 150}, {subject: 'Entrance', A: dataEntrance, fullMark: 150},];
+                this.setState({
+                    data: values
+                });
+            });
+    };
 
     render() {
 
