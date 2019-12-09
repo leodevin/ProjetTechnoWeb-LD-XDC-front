@@ -33,28 +33,43 @@ class Main_Card_Graph extends Component {
         if (this.props.userID !== prevProps.userID) {
             this.getGraphMeasures(this.props.userID);
         }
-        console.log(this.props.userID);
     }
 
     getGraphMeasures() {
         let values = [{name: '-/-', Pollution: 0}, {name: '-/-', Pollution: 0}, {name: '-/-', Pollution: 0}, {name: '-/-', Pollution: 0}, {name: '-/-', Pollution: 0}];
         let sortedActivities = 0;
         let results;
-        axios.get(`http://localhost:3000/user/` + this.props.userID + `/airPollutions`)
+        let sensMeasures=[];
+        let sensors=[];
+        axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)
             .then(res => {
-                results = res.data;
-                console.log(results);
-                sortedActivities = results.slice().sort((a, b) => b.date - a.date);
-                for (let i = 0; i < sortedActivities.length; i++) {
-                    values[4 - i].Pollution = sortedActivities[sortedActivities.length - 1 - i].value;
-                    values[4 - i].name = sortedActivities[sortedActivities.length - 1 - i].creationDate;
-                    if(i===4){
-                        i=sortedActivities.length;
-                    }
-                }
-                this.setState({
-                    data: values
-                });
+                sensors = res.data;
+                axios.get(`http://localhost:3000/measures`)
+                    .then(res => {
+                        sensMeasures = res.data;
+                        var results =[];
+                        for(let i=0; i<sensors.length;i++){
+                            for (let j=0;j<sensMeasures.length;j++){
+                                if(sensors[i]._id === sensMeasures[j].sensorID){
+                                    if((sensMeasures[j].type==="airPollution")){
+                                        results.push(sensMeasures[j]);
+                                    }
+                                }
+                            }
+                        }
+                        sortedActivities = results.slice().sort((a, b) => b.date - a.date);
+                        for (let i = 0; i < sortedActivities.length; i++) {
+                            values[4 - i].Pollution = sortedActivities[sortedActivities.length - 1 - i].value;
+                            values[4 - i].name = sortedActivities[sortedActivities.length - 1 - i].creationDate;
+                            if(i===4){
+                                i=sortedActivities.length;
+                            }
+                        }
+                        this.setState({
+                            data: values
+                        });
+
+                    });
             });
     };
 
