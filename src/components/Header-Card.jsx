@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../css/Header.css';
 
 
@@ -10,6 +11,7 @@ class Header_Card extends React.Component {
             description: "None",
             value: 0,
             growth: 0,
+            values:[],
         };
     }
 
@@ -21,6 +23,78 @@ class Header_Card extends React.Component {
         }
     }
 
+    calculateGrowth(){
+        let sortedActivities = this.state.values.slice().sort((a, b) => b.date - a.date);
+        if (sortedActivities.length>1){
+            let percent = ((sortedActivities[sortedActivities.length-1].value/sortedActivities[sortedActivities.length-2].value)-1)*100;
+            let res = parseFloat(percent).toFixed(2);
+            this.setState({
+                growth: res
+            })
+        }else{
+            this.setState({
+                growth: 0
+            })
+        }
+    };
+
+    calculateAverage(){
+        if (this.state.values.length!==0){
+            let average=0;
+            for (let i=0; i<this.state.values.length; i++){
+                average+=this.state.values[i].value;
+            }
+            let res = parseFloat(average/this.state.values.length).toFixed(2);
+            this.setState({
+                value: res
+            });
+        }else{
+            this.setState({
+                value: 0
+            });
+        }
+
+    }
+
+    componentDidMount() {
+        this.getUserMeasures();
+    }
+
+    ///Get Measures  only if props has changed
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        ///Get Profile Details only if props has changed
+        if (this.props.userID !== prevProps.userID) {
+            this.getUserMeasures(this.props.userID);
+        }
+    }
+
+    getUserMeasures(){
+        let sensMeasures=[];
+        let sensors=[];
+        axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)
+            .then(res => {
+                sensors = res.data;
+                axios.get(`http://localhost:3000/measures`)
+                    .then(res => {
+                        sensMeasures = res.data;
+                        var temp =[];
+                        for(let i=0; i<sensors.length;i++){
+                            for (let j=0;j<sensMeasures.length;j++){
+                                if(sensors[i]._id === sensMeasures[j].sensorID){
+                                    if((sensMeasures[j].type===this.props.type)){
+                                        temp.push(sensMeasures[j]);
+                                    }
+                                }
+                            }
+                        }
+                        this.setState({
+                            values: temp
+                        });
+                        this.calculateAverage();
+                        this.calculateGrowth();
+                    });
+            });
+    };
 
     render() {
         return (
