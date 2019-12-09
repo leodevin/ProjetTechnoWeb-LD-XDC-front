@@ -51,15 +51,15 @@ class App extends React.Component {
                             <HeaderNavbar users={this.state.users} sendData={this.handleChangeUser}/>
                             <div className="row mx-5 justify-content-center">
                                 <HeaderCard
-                                    description={"Temp. moyenne actuelle"}
+                                    description={"Température moyenne"}
                                     userID={this.state.idUserSelected}
                                     type={"temperature"}/>
                                 <HeaderCard
-                                    description={"Pollution moyenne actuelle"}
+                                    description={"Pollution moyenne"}
                                     userID={this.state.idUserSelected}
                                     type={"airPollution"}/>
                                 <HeaderCard
-                                    description={"Humidité moyenne actuelle"}
+                                    description={"Humidité moyenne"}
                                     userID={this.state.idUserSelected}
                                     type={"humidity"}/>
                             </div>
