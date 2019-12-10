@@ -52,7 +52,7 @@ class App extends React.Component {
                     <header className="header-body bg-gradient-info">
                         <div className="container-fluid">
                             <HeaderNavbar users={this.state.users} sendData={this.handleChangeUser}/>
-                            <div className="row mx-5 justify-content-center">
+                            <div className="row mx-lg-5 mx-md-3 mx-sm-5 justify-content-center">
                                 <HeaderCard
                                     description={"Température moyenne"}
                                     userID={this.state.idUserSelected}
@@ -82,7 +82,7 @@ const Administration = (props) => (
     <main>
         <Container fluid className="main">
             <Row>
-                <Col className="mx-5 middle-row">
+                <Col className="mx-md-3 mx-sm-5  middle-row">
                     <MainCardForm users={props.users}/>
                 </Col>
             </Row>
@@ -96,7 +96,7 @@ const Administration = (props) => (
 const Acceuil = (props) => (
     <div>
         <Container fluid className="main">
-            <Row className="mx-md-5 justify-content-center middle-row">
+            <Row className="mx-md-3 mx-sm-5  justify-content-center middle-row">
                 <Col className="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
                     <MainCardGraph userID={props.userID}/>
                 </Col>
@@ -104,7 +104,7 @@ const Acceuil = (props) => (
                     <MainCardInfo userID={props.userID}/>
                 </Col>
             </Row>
-            <Row className="mx-md-5 justify-content-center">
+            <Row className="mx-md-3 justify-content-center">
                 <Col className="col-xl-6 col-lg-6 col-md-10 col-sm-12 col-12 mt-lg-5 mt-2 justify-content-around">
                     <MainCardUser userID={props.userID}/>
                 </Col>
