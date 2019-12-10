@@ -107,7 +107,6 @@ class Header_Navbar extends React.Component {
     };
 
     render() {
-
         // Création de tous les items
         const usersList = this.props.users.map((user) =>
             <Dropdown.Item href={"#"} onClick={() => this.handleClickItem(user._id)}>{user._id}</Dropdown.Item>

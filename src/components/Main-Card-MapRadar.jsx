@@ -49,7 +49,6 @@ class Main_Card_Map extends Component {
                     if(sensors[i].location==="bathroom"){dataBathroom++;}
                     if(sensors[i].location==="entrance"){dataEntrance++;}
                 }
-                console.log(dataEntrance);
                 let values = [{subject: 'Bedroom', A: dataBedroom, fullMark: 150}, {subject: 'Livingroom', A: dataLivingRoom, fullMark: 150}, {subject: 'Bathroom', A: dataBathroom, fullMark: 150}, {subject: 'Entrance', A: dataEntrance, fullMark: 150},];
                 this.setState({
                     data: values

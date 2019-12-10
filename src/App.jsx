@@ -67,7 +67,7 @@ class App extends React.Component {
                     </header>
                     <AnimatedSwitch animationClassName="page-slide" animationTimeout={500}>
                         <AnimatedRoute exact path="/"><Acceuil userID={this.state.idUserSelected}/></AnimatedRoute>
-                        <AnimatedRoute path="/administration"><Administration/></AnimatedRoute>
+                        <AnimatedRoute path="/administration"><Administration users={this.state.users}/></AnimatedRoute>
                     </AnimatedSwitch>
                 </div>
             </Router>
@@ -75,12 +75,12 @@ class App extends React.Component {
     }
 }
 
-const Administration = () => (
+const Administration = (props) => (
     <main>
         <Container fluid className="main">
             <Row>
                 <Col className="mx-5 middle-row">
-                    <MainCardForm/>
+                    <MainCardForm users={props.users}/>
                 </Col>
             </Row>
         </Container><footer>

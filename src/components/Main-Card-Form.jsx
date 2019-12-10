@@ -10,13 +10,21 @@ const creatUserChamps = [
     {nomChamps: "PERSONNES DANS LA MAISON", nomPlaceHolder: "Nombre", name: "personnes", type: "number"},
     {nomChamps: "TAILLE DE LA MAISON", nomPlaceHolder: "Big/Medium/Small", name: "taille", type: "text"}];
 
-const deleteUserChamps = [
-    {nomChamps: "ID", nomPlaceHolder: "Id de l'utilisateur à supprimer", name: "id", type: "text"}];
+const updateUserChamps = [
+    {nomChamps: "LOCATION", nomPlaceHolder: "Pays", name: "location", type: "text"},
+    {nomChamps: "PERSONNES DANS LA MAISON", nomPlaceHolder: "Nombre", name: "personnes", type: "number"},
+    {nomChamps: "TAILLE DE LA MAISON", nomPlaceHolder: "Big/Medium/Small", name: "taille", type: "text"}];
+
+
+const deleteUserChamps = [];
+
+
 
 class Main_Card_Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            title : "Ajout",
             champs : creatUserChamps,
             valueChampsSelected: 1
         };
@@ -27,6 +35,7 @@ class Main_Card_Form extends Component {
         this.deleteUser = this.deleteUser.bind(this);
     }
 
+    // Créer les states des champs du form en création
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
     }
@@ -48,6 +57,7 @@ class Main_Card_Form extends Component {
             });
     }
 
+    //Requet pour le form : Update d'utilisateur
     updateUser(event){
         axios.put('http://localhost:3000/user/'+this.state.id, {
             userId: this.state.id,
@@ -63,8 +73,6 @@ class Main_Card_Form extends Component {
                 console.log(error);
             });
     }
-
-    //event.preventDefault();
 
     //Requet pour le form : delete d'utilisateur
     deleteUser(event){
@@ -111,18 +119,22 @@ class Main_Card_Form extends Component {
     // Change les champs en fonction du type selectionner
     changeSelectButton(e){
         if(e.target.value == 1){
-            this.setState({champs: creatUserChamps, valueChampsSelected: 1})
+            this.setState({title: "Ajout",champs: creatUserChamps, valueChampsSelected: 1})
         }
         if(e.target.value == 2){
-            this.setState({champs: creatUserChamps, valueChampsSelected: 2})
+            this.setState({title: "Mise à jour", champs: updateUserChamps, valueChampsSelected: 2})
         }
         if(e.target.value == 3){
-            this.setState({champs: deleteUserChamps, valueChampsSelected: 3})
+            this.setState({title: "Suppression", champs: deleteUserChamps, valueChampsSelected: 3})
         }
     }
 
-    render() {
+    // Crée le state de l'user selectionner
+    changeSelectUser(e){
+        this.setState({id: e.target.value});
+    }
 
+    render() {
         const displayChamps = this.state.champs.map((post) =>
             <div><Row>
                     <Col lg={4}><label>{post.nomChamps}</label></Col>
@@ -135,11 +147,29 @@ class Main_Card_Form extends Component {
             </div>
             );
 
+        if (this.state.valueChampsSelected == 2 || this.state.valueChampsSelected == 3){
+            displayChamps.unshift(
+                <div>
+                    <Row>
+                        <Col lg={4}><label>{"ID DES UTILISATEURS"}</label></Col>
+                        <Col lg={8}><Form.Control as="select"
+                                                  variant={"primary"}
+                                                  onChange={this.changeSelectUser.bind(this)}>
+                            {this.props.users.map((user) =>
+                                <option value={user._id}>{user._id}</option>
+                            )}
+                        </Form.Control></Col>
+                    </Row><br/>
+                </div>
+            );
+        }
+
+
         return (
             <Card className="my-lg-5 my-md-4 my-sm-4 my-4">
                 <Row className="mx-3 my-3 justify-content-between">
                     <Col className="col-lg-4 col-md-6 col-6">
-                        <h2 className="title-form">Ajout d'un utilisateur</h2>
+                        <h2 className="title-form">{this.state.title + " d'un utilisateur"}</h2>
                     </Col>
                     <Col className="col-lg-4 col-md-6 col-6" id="col-form-button">
                         <Form.Control as="select"
@@ -156,7 +186,10 @@ class Main_Card_Form extends Component {
                         <Col className={"col-8"}>
                             <Form onSubmit={this.handleSubmit}>
                                 {displayChamps}
-                                <Button className="justify-content-center button-form" type={"submit"}>ENVOYER</Button>
+                                <br/>
+                                <div>
+                                <Button type={"submit"} className="btn btn-primary">
+                                    <a>ENVOYER</a></Button></div>
                             </Form>
                         </Col>
                     </Row>
