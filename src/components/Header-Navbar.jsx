@@ -19,21 +19,24 @@ class Header_Navbar extends React.Component {
                 acceuilPosition: 0,
                 adminScale: 0.7,
                 adminPosition: 0,
+                headerSelected: "acceuilSelect"
             }
         } else {
-            if (window.innerWidth >= 860) {
+            if (window.innerWidth >= 1024) {
+                this.state = {
+                    acceuilScale: 0.7,
+                    acceuilPosition: -400,
+                    adminScale: 1,
+                    adminPosition: -250,
+                    headerSelected: "adminSelect"
+                }
+            } else if (window.innerWidth > 800 && window.innerWidth < 1024) {
                 this.state = {
                     acceuilScale: 0.7,
                     acceuilPosition: -350,
                     adminScale: 1,
-                    adminPosition: -250,
-                }
-            } else if (window.innerWidth > 520 && window.innerWidth < 860) {
-                this.state = {
-                    acceuilScale: 0.7,
-                    acceuilPosition: -250,
-                    adminScale: 1,
                     adminPosition: -220,
+                    headerSelected: "adminSelect"
                 }
             } else {
                 this.state = {
@@ -41,30 +44,32 @@ class Header_Navbar extends React.Component {
                     acceuilPosition: 0,
                     adminScale: 1,
                     adminPosition: 0,
+                    headerSelected: "adminSelect"
                 }
             }
         }
     }
 
 
-
     //**** DIFFERENTES TRANSITIONS ****//
     transitionLg() {
         this.setState({
             acceuilScale: 0.7,
-            acceuilPosition: -350,
+            acceuilPosition: -400,
             adminScale: 1,
             adminPosition: -250
         });
     }
+
     transitionMd() {
         this.setState({
             acceuilScale: 0.7,
-            acceuilPosition: -250,
+            acceuilPosition: -350,
             adminScale: 1,
             adminPosition: -220
         });
     }
+
     transitionSm() {
         this.setState({
             acceuilScale: 0.7,
@@ -73,13 +78,13 @@ class Header_Navbar extends React.Component {
             adminPosition: 0
         });
     }
+
     /******************************************/
-
-
 
 
     //**** ITEMS SELECT ****//
     selectAcceuil(event) {
+        this.setState({headerSelected: "acceuilSelect"});
         this.setState({
             acceuilScale: 1,
             acceuilPosition: 0,
@@ -90,7 +95,9 @@ class Header_Navbar extends React.Component {
             event.preventDefault();
         }
     }
+
     selectAdmin(event) {
+        this.setState({headerSelected: "adminSelect"});
         if (window.innerWidth >= 1024) this.transitionLg();
         else if (window.innerWidth > 800 && window.innerWidth < 1024) this.transitionMd();
         else this.transitionSm();
@@ -99,10 +106,11 @@ class Header_Navbar extends React.Component {
             event.preventDefault();
         }
     }
+
     /******************************************/
 
 
-    handleClickItem(id){
+    handleClickItem(id) {
         this.props.sendData(id);
     };
 
@@ -124,20 +132,21 @@ class Header_Navbar extends React.Component {
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
-                <div className="acceuilSelect" style={{
+                <div className={this.state.headerSelected} style={{
                     ...styles,
                     transform: 'scale(' + this.state.acceuilScale + ') translate(' + this.state.acceuilPosition + 'px,0px)'
                 }}>
                     <Link to="/" onClick={this.selectAcceuil.bind(this)}
                           style={{textDecoration: 'none', color: 'white'}}>Acceuil</Link>
                 </div>
-                <div className="adminSelect" style={{
+                <div className={this.state.headerSelected} style={{
                     ...styles,
                     transform: 'scale(' + this.state.adminScale + ') translate(' + this.state.adminPosition + 'px,0px)'
                 }}>
                     <Link to="/administration" onClick={this.selectAdmin.bind(this)}
                           style={{textDecoration: 'none', color: 'white'}}>Administration</Link>
                 </div>
+
             </div>
         )
     }
