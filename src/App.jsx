@@ -18,7 +18,7 @@ import MainCardForm from "./components/Main-Card-Form";
 import './App.css';
 
 //config url pour axios
-const config = require('../config/servor.config');
+const config = require('./config/servor.config');
 
 class App extends React.Component {
     constructor(props) {
