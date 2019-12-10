@@ -17,6 +17,9 @@ import MainCardForm from "./components/Main-Card-Form";
 //CSS
 import './App.css';
 
+//config url pour axios
+const config = require('../config/servor.config');
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -34,7 +37,7 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/users/`)
+        axios.get(config.url+`/users/`)
             .then(res => {
                 const persons = res.data;
                 this.setState({ users : persons });
