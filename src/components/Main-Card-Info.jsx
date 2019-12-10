@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Card} from "react-bootstrap";
 import '../css/Main-Info.css';
 import axios from "axios";
+const config = require('../config/servor.config');
+
 
 
 class Main_Card_Info extends Component {
@@ -29,10 +31,10 @@ class Main_Card_Info extends Component {
         let sortedActivities = 0;
         let sensMeasures = [];
         let sensors = [];
-        axios.get(`http://localhost:3000/user/` + this.props.userID + `/sensors/`)
+        axios.get(config.url+`/user/` + this.props.userID + `/sensors/`)
             .then(res => {
                 sensors = res.data;
-                axios.get(`http://localhost:3000/measures`)
+                axios.get(config.url+`/measures`)
                     .then(res => {
                         sensMeasures = res.data;
                         var results = [];

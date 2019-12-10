@@ -4,6 +4,8 @@ import '../css/Main-MapRadar.css'
 import {Card} from "react-bootstrap";
 import {Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer} from 'recharts';
 import axios from "axios";
+const config = require('../config/servor.config');
+
 
 
 class Main_Card_Map extends Component {
@@ -38,7 +40,7 @@ class Main_Card_Map extends Component {
         let dataBathroom = 0;
         let dataEntrance = 0;
         let sensors=[];
-        axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)
+        axios.get(config.url+`/user/`+this.props.userID+`/sensors/`)
             .then(res => {
                 sensors = res.data;
                 for(let i=0; i<sensors.length;i++){

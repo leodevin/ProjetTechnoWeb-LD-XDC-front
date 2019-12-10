@@ -3,6 +3,8 @@ import {Card, Row, Col} from "react-bootstrap";
 
 import '../css/Main-User.css'
 import axios from "axios";
+const config = require('../config/servor.config');
+
 
 class Main_Card_User extends Component {
 
@@ -32,7 +34,7 @@ class Main_Card_User extends Component {
     }
 
     getUserInfo() {
-        axios.get(`http://localhost:3000/user/` + this.props.userID)
+        axios.get(config.url+`/user/` + this.props.userID)
             .then(res => {
                 this.setState({
                     id: res.data._id,
@@ -49,11 +51,11 @@ class Main_Card_User extends Component {
         let nbCapteurs = 0;
         let sensMeasures = [];
         let sensors = [];
-        axios.get(`http://localhost:3000/user/` + this.props.userID + `/sensors/`)
+        axios.get(config.url+`/user/` + this.props.userID + `/sensors/`)
             .then(res => {
                 sensors = res.data;
                 nbCapteurs= sensors.length;
-                axios.get(`http://localhost:3000/measures`)
+                axios.get(config.url+`/measures`)
                     .then(res => {
                         sensMeasures = res.data;
                         for (let i = 0; i < sensors.length; i++) {

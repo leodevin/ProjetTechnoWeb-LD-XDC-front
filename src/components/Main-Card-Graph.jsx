@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import '../css/Main-Graph.css'
-
 import {AreaChart, Area, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip} from 'recharts';
 import {Card} from "react-bootstrap";
+const config = require('../config/servor.config');
+
 
 
 class Main_Card_Graph extends Component {
@@ -40,10 +41,10 @@ class Main_Card_Graph extends Component {
         let sortedActivities = 0;
         let sensMeasures=[];
         let sensors=[];
-        axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)
+        axios.get(config.url+`/user/`+this.props.userID+`/sensors/`)
             .then(res => {
                 sensors = res.data;
-                axios.get(`http://localhost:3000/measures`)
+                axios.get(config.url+`/measures`)
                     .then(res => {
                         sensMeasures = res.data;
                         var results =[];

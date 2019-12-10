@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Card, Button, Row, Col, Form} from "react-bootstrap";
 import '../css/Main-Form.css';
 import axios from 'axios';
+const config = require('../config/servor.config');
+
 
 // MODELES DES FORMS
 const creatUserChamps = [
@@ -41,7 +43,7 @@ class Main_Card_Form extends Component {
 
     // Requet pour le form : creation d'utilisateur
     creatUser(event) {
-        axios.post('http://localhost:3000/user', {
+        axios.post(config.url+'/user', {
             userId: this.state.id,
             location: this.state.location,
             personsInHouse: parseInt(this.state.personnes),
@@ -58,7 +60,7 @@ class Main_Card_Form extends Component {
 
     //Requet pour le form : Update d'utilisateur
     updateUser(event) {
-        axios.put('http://localhost:3000/user/' + this.state.id, {
+        axios.put(config.url+'/user/' + this.state.id, {
             userId: this.state.id,
             location: this.state.location,
             personsInHouse: parseInt(this.state.personnes),
@@ -75,7 +77,7 @@ class Main_Card_Form extends Component {
 
     //Requet pour le form : delete d'utilisateur
     deleteUser(event) {
-        axios.delete(`http://localhost:3000/user/`+this.state.id)
+        axios.delete(config.url+`/user/`+this.state.id)
             .then(res => {
                 event.preventDefault();
             });

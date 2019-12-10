@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import '../css/Header.css';
-
+const config = require('../config/servor.config');
 
 
 class Header_Card extends React.Component {
@@ -71,10 +71,10 @@ class Header_Card extends React.Component {
     getUserMeasures(){
         let sensMeasures=[];
         let sensors=[];
-        axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)
+        axios.get(config.url+`/user/`+this.props.userID+`/sensors/`)
             .then(res => {
                 sensors = res.data;
-                axios.get(`http://localhost:3000/measures`)
+                axios.get(config.url+`/measures`)
                     .then(res => {
                         sensMeasures = res.data;
                         var temp =[];
