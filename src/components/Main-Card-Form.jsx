@@ -98,12 +98,15 @@ class Main_Card_Form extends Component {
 
     // Change les champs en fonction du type selectionner
     changeSelectButton(e) {
+        // eslint-disable-next-line
         if (e.target.value == 1) {
             this.setState({title: "Ajout", champs: creatUserChamps, valueChampsSelected: 1})
         }
+        // eslint-disable-next-line
         if (e.target.value == 2) {
             this.setState({title: "Mise à jour", champs: updateUserChamps, valueChampsSelected: 2})
         }
+        // eslint-disable-next-line
         if (e.target.value == 3) {
             this.setState({title: "Suppression", champs: deleteUserChamps, valueChampsSelected: 3})
         }
