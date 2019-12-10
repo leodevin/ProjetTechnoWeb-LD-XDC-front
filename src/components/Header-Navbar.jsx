@@ -137,7 +137,7 @@ class Header_Navbar extends React.Component {
                     transform: 'scale(' + this.state.acceuilScale + ') translate(' + this.state.acceuilPosition + 'px,0px)'
                 }}>
                     <Link to="/" onClick={this.selectAcceuil.bind(this)}
-                          style={{textDecoration: 'none', color: 'white'}}>Acceuil</Link>
+                          style={{textDecoration: 'none', color: 'white'}}>Accueil</Link>
                 </div>
                 <div className={this.state.headerSelected} style={{
                     ...styles,
