@@ -56,7 +56,6 @@ class Main_Card_User extends Component {
                 axios.get(`http://localhost:3000/measures`)
                     .then(res => {
                         sensMeasures = res.data;
-                        var results = [];
                         for (let i = 0; i < sensors.length; i++) {
                             for (let j = 0; j < sensMeasures.length; j++) {
                                 if (sensors[i]._id === sensMeasures[j].sensorID) {

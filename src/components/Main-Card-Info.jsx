@@ -27,7 +27,6 @@ class Main_Card_Info extends Component {
 
     getDebugInfo() {
         let sortedActivities = 0;
-        let results;
         let sensMeasures = [];
         let sensors = [];
         axios.get(`http://localhost:3000/user/` + this.props.userID + `/sensors/`)

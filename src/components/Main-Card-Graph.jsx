@@ -38,7 +38,6 @@ class Main_Card_Graph extends Component {
     getGraphMeasures() {
         let values = [{name: '-/-', Pollution: 0}, {name: '-/-', Pollution: 0}, {name: '-/-', Pollution: 0}, {name: '-/-', Pollution: 0}, {name: '-/-', Pollution: 0}];
         let sortedActivities = 0;
-        let results;
         let sensMeasures=[];
         let sensors=[];
         axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)

@@ -37,8 +37,6 @@ class Main_Card_Map extends Component {
         let dataLivingRoom = 0;
         let dataBathroom = 0;
         let dataEntrance = 0;
-
-        let sensMeasures=[];
         let sensors=[];
         axios.get(`http://localhost:3000/user/`+this.props.userID+`/sensors/`)
             .then(res => {

@@ -105,26 +105,26 @@ class Main_Card_Form extends Component {
 
     // Centre de redirection en fonction du type de form selectionner
     handleSubmit(event) {
-        if (this.state.valueChampsSelected == 1){
+        if (this.state.valueChampsSelected === 1){
             this.creatUser(event);
         }
-        if (this.state.valueChampsSelected == 2){
+        if (this.state.valueChampsSelected === 2){
             this.updateUser(event);
         }
-        if (this.state.valueChampsSelected == 3){
+        if (this.state.valueChampsSelected === 3){
             this.deleteUser(event);
         }
     }
 
     // Change les champs en fonction du type selectionner
     changeSelectButton(e){
-        if(e.target.value == 1){
+        if(e.target.value === 1){
             this.setState({title: "Ajout",champs: creatUserChamps, valueChampsSelected: 1})
         }
-        if(e.target.value == 2){
+        if(e.target.value === 2){
             this.setState({title: "Mise à jour", champs: updateUserChamps, valueChampsSelected: 2})
         }
-        if(e.target.value == 3){
+        if(e.target.value === 3){
             this.setState({title: "Suppression", champs: deleteUserChamps, valueChampsSelected: 3})
         }
     }
@@ -147,7 +147,7 @@ class Main_Card_Form extends Component {
             </div>
             );
 
-        if (this.state.valueChampsSelected == 2 || this.state.valueChampsSelected == 3){
+        if (this.state.valueChampsSelected === 2 || this.state.valueChampsSelected === 3){
             displayChamps.unshift(
                 <div>
                     <Row>
@@ -188,8 +188,7 @@ class Main_Card_Form extends Component {
                                 {displayChamps}
                                 <br/>
                                 <div>
-                                <Button type={"submit"} className="btn btn-primary">
-                                    <a>ENVOYER</a></Button></div>
+                                <Button type={"submit"} className="btn btn-primary">ENVOYER</Button></div>
                             </Form>
                         </Col>
                     </Row>
